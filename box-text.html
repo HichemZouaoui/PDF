@@ -35,8 +35,9 @@
 				<label>Your Name : </label><input type="text" placeholder="Jack" required="true"  id="name">
 				<label id="label2">Your Email : </label><input type="email" placeholder="example@example.com" required="true" id="email1">
 				<label id="label3">Your password :</label><input type="password" placeholder="• • • • • • • • " minlength="8" required="true" id="passwd">
-				<input type="submit" id="submit">
+				
 			</form>
+			<input type="submit" id="submit">
 		</div>
 	</div>
 	<script>
@@ -155,24 +156,126 @@
 			}
 		}
 		function checkpassword(){
+			let maj="invalid";
+			let min="invalid";
+			let spch="invalid";
+			let arrayofmaj=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","K","R","S","T","U","V","W","X","Y","Z"];
+			let arrayofmin=["a","b","c","d","e","f","g","h","i","j","l","m","n","o","p","k","r","s","t","u","v","w","x","y","z"];
+			let arrayofspch=["!","#",'"',"'","$","%","&","|","(",")","*","+","-","/",",","."," ",";","?","[","]","~","_","\"","@","§","£","¨","^","²","°","¤","=","<",">","0","1","2","3","4","5","6","7","8","9"]
 			let passwd=document.getElementById("passwd");
-			if (passwd.value.length<8){
-				if (passwd.nextElementSibling.textContent=="⛔ Invalid Password. Please write one that its length is greater than or equal to 8" || passwd.nextElementSibling.textContent=="✅ Valid password which has a length greater or equal to 8" ){
-					passwd.parentElement.appendChild("")
+			//console.log(passwd.nextElementSibling.textContent);
+			var ppparent=passwd.parentNode;
+			var test11=undefined;
+			for (var ff=0;ff<passwd.parentNode.children.length;ff++){
+				if((child2=ppparent.lastChild.previousSibling).textContent=="⛔ Invalid Password. Please write one that its length is greater than or equal to 8" || (child2=ppparent.lastChild.previousSibling).textContent=="✅ Valid password which has a length greater or equal to 8"){
+					test11=true;
+					console.log("truy");
 				}
-				let texr=document.createElement("p");
-				let contenu=document.createTextNode("⛔ Invalid Password. Please write one that its length is greater than or equal to 8");
-				texr.appendChild(contenu);
-				passwd.parentNode.appendChild(texr,document.getElementById('label3'));	
+				else{
+					test11=false;
+				}
+			}
+			if (passwd.value.length<8){
+				if (passwd.nextElementSibling==undefined){
+					passwd.parentElement.removeChild(passwd.nextSibling);
+					let texr=document.createElement("p");
+					let contenu=document.createTextNode("⛔ Invalid Password. Please write one that its length is greater than or equal to 8");
+					texr.appendChild(contenu);
+					passwd.parentNode.appendChild(texr,document.getElementById('label3'));	
+				}
+				else if(test11==true){
+					passwd.parentElement.removeChild(passwd.nextSibling);
+					let texr=document.createElement("p");
+					let contenu=document.createTextNode("⛔ Invalid Password. Please write one that its length is greater than or equal to 8");
+					texr.appendChild(contenu);
+					passwd.parentNode.appendChild(texr,document.getElementById('label3'));	
+				}
 			}
 			else if(passwd.value.length>=8){
+				if (passwd.nextElementSibling==undefined){
+					let texr=document.createElement("pre");
+					let contenu=document.createTextNode("✅ Valid password which has a length greater or equal to 8");
+					texr.appendChild(contenu);
+					passwd.parentNode.appendChild(texr,document.getElementById('label3'));
+				}
+				else if(test11==true ){
+					passwd.parentNode.removeChild(passwd.nextSibling);
+					let texr=document.createElement("pre");
+					let contenu=document.createTextNode("✅ Valid password which has a length greater or equal to 8");
+					texr.appendChild(contenu);
+					passwd.parentNode.appendChild(texr,document.getElementById('label3'));
+				}
+			}
+			console.log(passwd.value);
+			console.log(passwd.value[1]);
+			console.log(arrayofmaj.length)
+			for(var i=0;i<passwd.value.length;i++){
+				for (var b=0;b<arrayofmaj.length;b++){
+					if (passwd.value[i]==arrayofmaj[b]){
+						maj="valid";
+						console.log("it's entered");
+						console.log(arrayofmaj[b]);
+						break;
+					}
+					/*else{
+						//console.log(passwd[i]);
+						//console.log(arrayofmaj[b]);
+					}*/
+				}
+				console.log("hello1");
+				for (var b=0;b<arrayofmin.length;b++){
+					if(passwd.value[i]==arrayofmin[b]){
+						min="valid";
+						console.log("it's entered");
+						console.log(passwd[i]);
+						//console.log(arrayofmaj[b]);
+						break;
+					}
+					/*else{
+						console.log(passwd[i]);
+						console.log(arrayofmaj[b]);
+					}*/
+				}
+				for(var b=0;b<arrayofspch.length;b++){
+					if(passwd.value[i]==arrayofspch[b]){
+						spch="valid";
+						console.log("it's entered");
+						//console.log(arrayofmaj[b]);
+						break;
+					}
+					/*else{
+						//console.log(passwd[i]);
+						//console.log(arrayofmaj[b]);
+					}*/
+				}
+			}
+			console.log(maj,min,spch)
+			if (maj=="valid" && min=="valid" && spch=="valid"){
 				let texr=document.createElement("pre");
-				let contenu=document.createTextNode("✅ Valid password which has a length greater or equal to 8");
+				let contenu=document.createTextNode("✅ Your password is strong");
 				texr.appendChild(contenu);
-				passwd.parentNode.appendChild(texr,document.getElementById('label3'));
+				if (passwd.nextElementSibling.nextElementSibling==undefined){
+					passwd.parentNode.appendChild(texr,document.getElementById('label3'));
+				}
+				else if(passwd.nextElementSibling.nextElementSibling.textContent=="Your password is not strong enough.Please try putting special and lowercase and uppercase characters in your password" || passwd.nextElementSibling.textContent=="✅ Your password is strong" ){
+					passwd.parentElement.removeChild(passwd.nextSibling.nextSibling);
+					passwd.parentNode.appendChild(texr,document.getElementById('label3'));
+				}
+			}
+			else{
+				let texr=document.createElement("ins");
+				let contenu=document.createTextNode("Your password is not strong enough.Please try putting special and lowercase and uppercase characters in your password");
+				texr.appendChild(contenu);
+				if (passwd.nextElementSibling.nextElementSibling==undefined){
+					passwd.parentNode.appendChild(texr,document.getElementById('label3'));
+				}
+				else if(passwd.nextElementSibling.nextElementSibling.textContent=="Your password is not strong enough.Please try putting special and lowercase and uppercase characters in your password" || passwd.nextElementSibling.textContent=="✅ Your password is strong" ){
+					passwd.parentElement.removeChild(passwd.nextSibling.nextSibling);
+					passwd.parentNode.appendChild(texr,document.getElementById('label3'));
+				}
 			}
 		}
-		document.getElementById("submit").addEventListener("click",function(){checkpassword()});
+		document.getElementById("submit").addEventListener("click",function(){checktext();checkemail();checkpassword()});
 
 	</script>
 </body>
