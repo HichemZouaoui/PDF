@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<!--
+<head>
+	<title>CSS skew() function</title>
+
+	<style>
+		body {
+			text-align:center;
+		}
+		h1 {
+			color:green;
+		}
+		.skew_image {
+			transform-origin: top left;
+			transform: skew(0deg, 0);
+		}
+	</style>
+</head>
+
+<body>
+	<h1>GeeksforGeeks</h1>
+	<h2>CSS skew() function</h2>
+	
+	<img class="skew_image" src=
+"https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190710102234/download3.png"
+		alt="GeeksforGeeks logo">
+</body>-->
+<head><link rel="stylesheet" href="style-de-box-text.css"></head>
+<body>
+	<div id="mother">
+		<div id="popup">
+			<form>
+				<ppp>We are happy to hear that you decided to join us on our platform</ppp>
+				<label>Your Name : </label><input type="text" placeholder="Jack" required="true"  id="name">
+				<label id="label2">Your Email : </label><input type="email" placeholder="example@example.com" required="true" id="email1">
+				<label id="label3">Your password :</label><input type="password" placeholder="• • • • • • • • " minlength="8" required="true" id="passwd">
+				<input type="submit" id="submit">
+			</form>
+		</div>
+	</div>
+	<script>
+		function checktext(){
+			name1=document.getElementById("name").value;
+			namenotcontent=document.querySelector("#name");
+			namenotcontent1=document.getElementById("name")
+			form1=document.querySelector("form");
+			//email=document.getElementById("email");
+			//
+			if (namenotcontent.nextElementSibling.innerHTML=="⛔ Invalid Name. Please enter a valid one."){
+				if(name1==null || name1==0 || name1=='NaN' || name1==undefined){
+					/*
+					let texr=document.createElement("p");
+					let contenu=document.createTextNode("⛔ Invalid Name. Please enter a valid one.");
+					texr.appendChild(contenu);
+					namenotcontent1.parentNode.removeChild(namenotcontent1.nextElementSibling);
+					alert("it didnt't1");
+					form1.insertBefore(texr,document.querySelector('#label2'));
+					return false;*/
+					alert("it didn't1");
+					return false;
+				} 
+				
+				else if (name1!=null || name1!=0 || name1!='NaN' || name1!=undefined){
+					let texr=document.createElement("pre");
+					let contenu=document.createTextNode("✅ Valid Name");
+					texr.appendChild(contenu);
+					namenotcontent1.parentNode.removeChild(namenotcontent1.nextElementSibling);
+					form1.insertBefore(texr,document.querySelector('#label2'));
+					return false;
+			}
+		}
+			else if(namenotcontent.nextElementSibling.innerHTML=="✅ Valid Name"){
+				if (name1==null || name1==0 || name1=='NaN' || name1==undefined){
+					let texr=document.createElement("p");
+					let contenu=document.createTextNode("⛔ Invalid Name. Please enter a valid one.");
+					console.log(contenu.textContent);
+					//contenu.textContent.style.color="red";
+					texr.appendChild(contenu);
+					console.log(document.querySelector('#label2'));
+					form1.insertBefore(texr,document.querySelector('#label2'));
+					namenotcontent1.parentNode.removeChild(namenotcontent1.nextElementSibling);
+					alert("it didnt't2");
+					return false;
+				}
+				else if(name1!=null || name1!=0 || name1!=NaN || name1!=undefined){
+					let texr=document.createElement("pre");
+					let contenu=document.createTextNode("✅ Valid Name");
+					texr.appendChild(contenu);
+					namenotcontent1.parentNode.removeChild(namenotcontent1.nextElementSibling);
+					form1.insertBefore(texr,document.querySelector('#label2'));
+					alert("it's entered2");
+					return false;
+				}
+			}
+			else{	
+				if (name1==null || name1==0 || name1=='NaN' || name1==undefined){
+					let texr=document.createElement("p");
+					let contenu=document.createTextNode("⛔ Invalid Name. Please enter a valid one.");
+					console.log(contenu.textContent)
+					//contenu.textContent.style.color="red";
+					texr.appendChild(contenu);
+					console.log(document.querySelector('#label2'));
+					form1.insertBefore(texr,document.querySelector('#label2'));
+					alert("secondone");		
+					return false;
+				
+				}
+				else if (name1!=null || name1!=0 || name1!='NaN' || name1!=undefined){
+					let texr=document.createElement("pre");
+					let contenu=document.createTextNode("✅ Valid Name");
+					texr.appendChild(contenu);
+					form1.insertBefore(texr,document.querySelector('#label2'));
+					alert("firstone");
+					return false;
+				}
+			}
+		}
+		function checkemail(){
+			let array1=[]
+			let pparent=document.querySelector('form');
+			let email1=document.querySelector("#email1").value;
+			console.log(email1.indexOf("@"));
+			for(var compt=email1.indexOf("@");compt<email1.length;compt++){
+				if (email1.indexOf("@")==-1){break}
+				if (email1[compt]==="@"){
+					array1.push("@");
+				}
+			}
+			console.log(array1)
+			if (document.getElementById("email1").nextElementSibling.textContent=="⛔ Invalid Email. Please enter a valid one." || document.getElementById("email1").nextElementSibling.textContent=="✅ Valid Email"){
+					pparent.removeChild(document.getElementById("email1").nextElementSibling);
+					alert("entered")
+				}
+			if (array1.length ==1){
+				let texr=document.createElement("pre");
+				let contenu=document.createTextNode("✅ Valid Email");
+				texr.appendChild(contenu);
+				pparent.insertBefore(texr,document.getElementById("label3"));
+			}
+			else{
+				if (document.getElementById("email1").nextElementSibling.textContent=="⛔ Invalid Email. Please enter a valid one." || document.getElementById("email1").nextElementSibling.textContent=="✅ Valid Email"){
+					pparent.removeChild(document.getElementById("email1").nextElementSibling);
+					alert("entered")
+				}
+				let texr=document.createElement("p");
+				let contenu=document.createTextNode("⛔ Invalid Email. Please enter a valid one.");
+				//console.log(contenu.textContent)
+				//contenu.textContent.style.color="red";
+				texr.appendChild(contenu);
+				//console.log(document.querySelector('#label2'));
+				pparent.insertBefore(texr,document.getElementById('label3'));
+				/*alert(document.getElementById("email1").nextElementSibling);
+				console.log(document.getElementById("email1").nextElementSibling.textContent);*/
+			}
+		}
+		function checkpassword(){
+			let passwd=document.getElementById("passwd");
+			if (passwd.value.length<8){
+				if (passwd.nextElementSibling.textContent=="⛔ Invalid Password. Please write one that its length is greater than or equal to 8" || passwd.nextElementSibling.textContent=="✅ Valid password which has a length greater or equal to 8" ){
+					passwd.parentElement.appendChild("")
+				}
+				let texr=document.createElement("p");
+				let contenu=document.createTextNode("⛔ Invalid Password. Please write one that its length is greater than or equal to 8");
+				texr.appendChild(contenu);
+				passwd.parentNode.appendChild(texr,document.getElementById('label3'));	
+			}
+			else if(passwd.value.length>=8){
+				let texr=document.createElement("pre");
+				let contenu=document.createTextNode("✅ Valid password which has a length greater or equal to 8");
+				texr.appendChild(contenu);
+				passwd.parentNode.appendChild(texr,document.getElementById('label3'));
+			}
+		}
+		document.getElementById("submit").addEventListener("click",function(){checkpassword()});
+
+	</script>
+</body>
+
+</html>	
