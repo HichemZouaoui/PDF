@@ -274,13 +274,10 @@ a:active{
     align-items: center;
 }
 #containerofstarwars{
-    border: black solid thick;
-    border-radius: 30px;
     line-height: 50px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding: 30px 30px 30px 30px;
     color: yellow;
-    background-image: url();
+    
 }
 .answersof2{
     color: inherit;
@@ -289,4 +286,11 @@ a:active{
 }
 .answersof2:hover{
     transform: translateX(30px);
+}
+video{
+    width: 99vw;
+    height: 80%;
+    margin: 0 0 0 63px;
+    z-index: -1;
+    position: absolute;
 }
