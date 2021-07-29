@@ -268,18 +268,21 @@ a:active{
 }
 #containerofstarwars{
     position: relative;
-    width: 95vw;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-#containerofstarwars{
     line-height: 50px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: yellow;
-    
+}
+#starwarsquiz{
+    margin-top: 3%;
+    margin-left: 50px;
+    width: 40vw;
 }
 .answersof2{
+    z-index: 1;
     color: inherit;
     transition: transform 0.5s linear 10ms;
     cursor:pointer ;
@@ -288,9 +291,62 @@ a:active{
     transform: translateX(30px);
 }
 video{
-    width: 99vw;
-    height: 80%;
+    /*width: 99vw;*/
+    height: 95%;
     margin: 0 0 0 63px;
-    z-index: -1;
-    position: absolute;
+    z-index: -1;    
+    position:absolute;
+}
+.arrowsbros{
+    width: 30px;
+}
+#arrowrightquiz1{
+    transform: scaleX(-1);
+}/*lawngreen*/
+#containerofdc{
+    position: relative;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3%;
+    line-height: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #0282f9;
+}
+#arrowrightquiz2{
+    transform: scaleX(-1);
+}
+#parentwithnumber{
+    background:radial-gradient(lawngreen, #9198e5);
+    width: 100vw;
+    /*margin-left: 10%;*/
+}
+.answersof3{
+    transition:transform 0.4s linear 10ms;
+    cursor: pointer;
+}
+.answersof3:hover{
+    transform: translateX(30px);
+}
+#containerofuniversal{
+    position: relative;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3%;
+    line-height: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: gray;
+}
+#arrowrightquiz3{
+    transform: scaleX(-1);
+}
+.answersof4{
+    transition:transform 0.4s linear 10ms;
+    cursor: pointer;
+}
+.answersof4:hover{
+    transform: translateX(30px);
 }
