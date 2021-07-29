@@ -350,3 +350,38 @@ video{
 .answersof4:hover{
     transform: translateX(30px);
 }
+#video{
+    width: 100vw;
+    height: 100vh;
+}
+p{
+    color:red
+}
+pre{
+    color:green
+}
+ins{
+    color: orange;
+}
+#login{
+    content-visibility: hidden;
+    background-color: white;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 15px;
+    top:0%;
+}
+#buttonlogin{
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    color: blue;
+    text-decoration: underline;
+    position: fixed;
+    top: 90%;
+    left: 90%;
+    cursor: pointer;
+}

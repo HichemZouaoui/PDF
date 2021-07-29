@@ -879,21 +879,283 @@ document.getElementById("solution16").addEventListener("click",function(){verifi
 
 function video(src){
     let body=document.querySelector("body");
+    let headd=document.querySelector("head")
+    containerofhead=headd;
     containerr=body;
     let html=document.querySelector('html');
     html.removeChild(body);
-    video1=document.createElement("video");
-    video1.setAttribute("autoplay")
-    video1.setAttribute("controls")
-    video1.setAttribute("oncanplaythrough","")
-    source1=document.createElement("source")
+    document.write("<video id='video' controls autoplay oncanplaythrough='videoduration()'><source src="+src+" type=video/mp4></video>");
+    document.write("<script src='js/script.js'></script>")
+    /*video1=document.createElement("video");
+    video1.setAttribute("autoplay","")
+    video1.setAttribute("controls","")
+    /*video1.setAttribute("oncanplaythrough","quit()");
+    source1=document.createElement("source");
     source1.setAttribute("src",src);
-    html.appendChild(video1,source1);
+    source1.setAttribute("type","video/mp4")
+    video1.appendChild(source1);
+    html.appendChild(video1);*/
 }
-function quit(){
-    video2=document.querySelector("video");
-    ttt=video2.videoDuration;
+function videoduration(){
+    video2=document.querySelector("#video");
+    document.getElementById("video").requestFullscreen()
+    //document.getElementById("video").requestFullScreen();
+    ttt=video2.duration;
     ttt*=1000;
-    console.log(ttt)
-    setTimeout()
+    setTimeout(function(){
+        let html1=document.querySelector('html');
+        let body1=document.querySelector('body');
+        html1.removeChild(body1);
+        html1.removeChild(document.querySelector("head"))
+        html1.appendChild(containerofhead);
+        html1.appendChild(containerr);
+    },ttt)
 }
+function checktext(){
+    name1=document.getElementById("name").value;
+    namenotcontent=document.querySelector("#name");
+    namenotcontent1=document.getElementById("name")
+    form1=document.querySelector("form");
+    //email=document.getElementById("email");
+    //
+    if (namenotcontent.nextElementSibling.innerHTML=="⛔ Invalid Name. Please enter a valid one."){
+        if(name1==null || name1==0 || name1=='NaN' || name1==undefined){
+            /*
+            let texr=document.createElement("p");
+            let contenu=document.createTextNode("⛔ Invalid Name. Please enter a valid one.");
+            texr.appendChild(contenu);
+            namenotcontent1.parentNode.removeChild(namenotcontent1.nextElementSibling);
+            alert("it didnt't1");
+            form1.insertBefore(texr,document.querySelector('#label2'));
+            return false;*/
+            alert("it didn't1");
+            return false;
+        } 
+        
+        else if (name1!=null || name1!=0 || name1!='NaN' || name1!=undefined){
+            let texr=document.createElement("pre");
+            let contenu=document.createTextNode("✅ Valid Name");
+            texr.appendChild(contenu);
+            namenotcontent1.parentNode.removeChild(namenotcontent1.nextElementSibling);
+            form1.insertBefore(texr,document.querySelector('#label2'));
+            return false;
+    }
+}
+    else if(namenotcontent.nextElementSibling.innerHTML=="✅ Valid Name"){
+        if (name1==null || name1==0 || name1=='NaN' || name1==undefined){
+            let texr=document.createElement("p");
+            let contenu=document.createTextNode("⛔ Invalid Name. Please enter a valid one.");
+            console.log(contenu.textContent);
+            //contenu.textContent.style.color="red";
+            texr.appendChild(contenu);
+            console.log(document.querySelector('#label2'));
+            form1.insertBefore(texr,document.querySelector('#label2'));
+            namenotcontent1.parentNode.removeChild(namenotcontent1.nextElementSibling);
+            alert("it didnt't2");
+            return false;
+        }
+        else if(name1!=null || name1!=0 || name1!=NaN || name1!=undefined){
+            let texr=document.createElement("pre");
+            let contenu=document.createTextNode("✅ Valid Name");
+            texr.appendChild(contenu);
+            namenotcontent1.parentNode.removeChild(namenotcontent1.nextElementSibling);
+            form1.insertBefore(texr,document.querySelector('#label2'));
+            alert("it's entered2");
+            return false;
+        }
+    }
+    else{	
+        if (name1==null || name1==0 || name1=='NaN' || name1==undefined){
+            let texr=document.createElement("p");
+            let contenu=document.createTextNode("⛔ Invalid Name. Please enter a valid one.");
+            console.log(contenu.textContent)
+            //contenu.textContent.style.color="red";
+            texr.appendChild(contenu);
+            console.log(document.querySelector('#label2'));
+            form1.insertBefore(texr,document.querySelector('#label2'));
+            alert("secondone");		
+            return false;
+        
+        }
+        else if (name1!=null || name1!=0 || name1!='NaN' || name1!=undefined){
+            let texr=document.createElement("pre");
+            let contenu=document.createTextNode("✅ Valid Name");
+            texr.appendChild(contenu);
+            form1.insertBefore(texr,document.querySelector('#label2'));
+            alert("firstone");
+            return false;
+        }
+    }
+}
+function checkemail(){
+    let array1=[]
+    let pparent=document.querySelector('form');
+    let email1=document.querySelector("#email1").value;
+    console.log(email1.indexOf("@"));
+    for(var compt=email1.indexOf("@");compt<email1.length;compt++){
+        if (email1.indexOf("@")==-1){break}
+        if (email1[compt]==="@"){
+            array1.push("@");
+        }
+    }
+    console.log(array1)
+    if (document.getElementById("email1").nextElementSibling.textContent=="⛔ Invalid Email. Please enter a valid one." || document.getElementById("email1").nextElementSibling.textContent=="✅ Valid Email"){
+            pparent.removeChild(document.getElementById("email1").nextElementSibling);
+            alert("entered")
+        }
+    if (array1.length ==1){
+        let texr=document.createElement("pre");
+        let contenu=document.createTextNode("✅ Valid Email");
+        texr.appendChild(contenu);
+        pparent.insertBefore(texr,document.getElementById("label3"));
+    }
+    else{
+        if (document.getElementById("email1").nextElementSibling.textContent=="⛔ Invalid Email. Please enter a valid one." || document.getElementById("email1").nextElementSibling.textContent=="✅ Valid Email"){
+            pparent.removeChild(document.getElementById("email1").nextElementSibling);
+            alert("entered")
+        }
+        let texr=document.createElement("p");
+        let contenu=document.createTextNode("⛔ Invalid Email. Please enter a valid one.");
+        //console.log(contenu.textContent)
+        //contenu.textContent.style.color="red";
+        texr.appendChild(contenu);
+        //console.log(document.querySelector('#label2'));
+        pparent.insertBefore(texr,document.getElementById('label3'));
+        /*alert(document.getElementById("email1").nextElementSibling);
+        console.log(document.getElementById("email1").nextElementSibling.textContent);*/
+    }
+}
+function checkpassword(){
+    let maj="invalid";
+    let min="invalid";
+    let spch="invalid";
+    let arrayofmaj=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","K","R","S","T","U","V","W","X","Y","Z"];
+    let arrayofmin=["a","b","c","d","e","f","g","h","i","j","l","m","n","o","p","k","r","s","t","u","v","w","x","y","z"];
+    let arrayofspch=["!","#",'"',"'","$","%","&","|","(",")","*","+","-","/",",","."," ",";","?","[","]","~","_","\"","@","§","£","¨","^","²","°","¤","=","<",">","0","1","2","3","4","5","6","7","8","9"]
+    let passwd=document.getElementById("passwd");
+    //console.log(passwd.nextElementSibling.textContent);
+    var ppparent=passwd.parentNode;
+    var test11=undefined;
+    for (var ff=0;ff<passwd.parentNode.children.length;ff++){
+        if((child2=ppparent.lastChild.previousSibling).textContent=="⛔ Invalid Password. Please write one that its length is greater than or equal to 8" || (child2=ppparent.lastChild.previousSibling).textContent=="✅ Valid password which has a length greater or equal to 8"){
+            test11=true;
+            console.log("truy");
+        }
+        else{
+            test11=false;
+        }
+    }
+    if (passwd.value.length<8){
+        if (passwd.nextElementSibling==undefined){
+            passwd.parentElement.removeChild(passwd.nextSibling);
+            let texr=document.createElement("p");
+            let contenu=document.createTextNode("⛔ Invalid Password. Please write one that its length is greater than or equal to 8");
+            texr.appendChild(contenu);
+            passwd.parentNode.appendChild(texr,document.getElementById('label3'));	
+        }
+        else if(test11==true){
+            passwd.parentElement.removeChild(passwd.nextSibling);
+            let texr=document.createElement("p");
+            let contenu=document.createTextNode("⛔ Invalid Password. Please write one that its length is greater than or equal to 8");
+            texr.appendChild(contenu);
+            passwd.parentNode.appendChild(texr,document.getElementById('label3'));	
+        }
+    }
+    else if(passwd.value.length>=8){
+        if (passwd.nextElementSibling==undefined){
+            let texr=document.createElement("pre");
+            let contenu=document.createTextNode("✅ Valid password which has a length greater or equal to 8");
+            texr.appendChild(contenu);
+            passwd.parentNode.appendChild(texr,document.getElementById('label3'));
+        }
+        else if(test11==true ){
+            passwd.parentNode.removeChild(passwd.nextSibling);
+            let texr=document.createElement("pre");
+            let contenu=document.createTextNode("✅ Valid password which has a length greater or equal to 8");
+            texr.appendChild(contenu);
+            passwd.parentNode.appendChild(texr,document.getElementById('label3'));
+        }
+    }
+    //console.log(passwd.value);
+    //console.log(passwd.value[1]);
+    //console.log(arrayofmaj.length)
+    for(var i=0;i<passwd.value.length;i++){
+        for (var b=0;b<arrayofmaj.length;b++){
+            if (passwd.value[i]==arrayofmaj[b]){
+                maj="valid";
+                console.log("it's entered");
+                console.log(arrayofmaj[b]);
+                break;
+            }
+            /*else{
+                //console.log(passwd[i]);
+                //console.log(arrayofmaj[b]);
+            }*/
+        }
+        console.log("hello1");
+        for (var b=0;b<arrayofmin.length;b++){
+            if(passwd.value[i]==arrayofmin[b]){
+                min="valid";
+                console.log("it's entered");
+                console.log(passwd[i]);
+                //console.log(arrayofmaj[b]);
+                break;
+            }
+            /*else{
+                console.log(passwd[i]);
+                console.log(arrayofmaj[b]);
+            }*/
+        }
+        for(var b=0;b<arrayofspch.length;b++){
+            if(passwd.value[i]==arrayofspch[b]){
+                spch="valid";
+                console.log("it's entered");
+                //console.log(arrayofmaj[b]);
+                break;
+            }
+            /*else{
+                //console.log(passwd[i]);
+                //console.log(arrayofmaj[b]);
+            }*/
+        }
+    }
+    console.log(maj,min,spch)
+    if (maj=="valid" && min=="valid" && spch=="valid"){
+        let texr=document.createElement("pre");
+        let contenu=document.createTextNode("✅ Your password is strong");
+        texr.appendChild(contenu);
+        if (passwd.nextElementSibling.nextElementSibling==undefined){
+            passwd.parentNode.appendChild(texr,document.getElementById('label3'));
+        }
+        else if(passwd.nextElementSibling.nextElementSibling.textContent=="Your password is not strong enough.Please try putting special and lowercase and uppercase characters in your password" || passwd.nextElementSibling.textContent=="✅ Your password is strong" ){
+            passwd.parentElement.removeChild(passwd.nextSibling.nextSibling);
+            passwd.parentNode.appendChild(texr,document.getElementById('label3'));
+        }
+    }
+    else{
+        let texr=document.createElement("ins");
+        let contenu=document.createTextNode("Your password is not strong enough.Please try putting special and lowercase and uppercase characters in your password");
+        texr.appendChild(contenu);
+        if (passwd.nextElementSibling.nextElementSibling==undefined){
+            passwd.parentNode.appendChild(texr,document.getElementById('label3'));
+        }
+        else if(passwd.nextElementSibling.nextElementSibling.textContent=="Your password is not strong enough.Please try putting special and lowercase and uppercase characters in your password" || passwd.nextElementSibling.textContent=="✅ Your password is strong" ){
+            passwd.parentElement.removeChild(passwd.nextSibling.nextSibling);
+            passwd.parentNode.appendChild(texr,document.getElementById('label3'));
+        }
+    }
+}
+document.getElementById("submit").addEventListener("click",function(){checktext();checkemail();checkpassword()});
+function showuppopup(){
+    document.getElementById("login").style.contentVisibility="visible";
+    document.getElementById("login").style.position="fixed"
+    //document.getElementById("login").style.top='25%';
+    document.getElementById("login").style.width="100vw";
+    document.getElementById("login").style.height="100vh";
+    /*document.querySelector("body").style.overflow="hidden";*/
+    //document.getElementById('login').style.left='40%';
+    document.getElementById("login").style.backgroundColor="rgba(0%,0%,0%,80%)";
+    document.querySelector("form").style.backgroundColor="white";
+    document.querySelector("form").style.padding="15px 15px 15px 15px"
+}
+document.getElementById("buttonlogin").addEventListener("click",function(){showuppopup()})
