@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="res/logo-of-marvel-title-removebg-preview.png" id="linkicon" type="image/x-icon"/>
+    <title id="title">Marvel</title>
+</head>
+<body >
+  <header>
+      <div style="display: inline-flex;">
+        <nav>
+            <img src="res/marvel_cinema_paris_artistikrezo_selection.png" style="width: 120px;">
+            <img src=>
+        </nav> 
+        <nav>
+          <img src="res/640px-Star_Wars_Logo.svg-removebg-preview.png" width="87px">
+        </nav>
+        <nav>
+          <img src="res/dc-comics-logo-removebg-preview.png" width="60px" style="margin-left: -30px;">
+        </nav>
+        <nav>
+          <img src="res/universal-studios-bgremove.png" width="70px">
+        </nav>
+      </div>
+  </header>  
+  <div id="theparent">
+    <div id="parent">
+        <div id="moving_screen" style="display: inline-flex;">
+            <img src="res/captain-america-marvels-avengers-4k-ky.jpg" class="img" id="marvel">
+            <img src="res/star-wars.jpg" class="img" id="star-wars">
+            <img src="res/dc-comics.jpg" class="img" id="dc-comics">
+            <img src="res/jurassic-world-fallen-kingdom.jpg" class="img" id="universal-studios">
+        </div>
+        <div id="slider">
+          <a onclick="diminish()" id="link1"><img src="res/arrowleft-removebg-preview.png" id="child"></a>
+          <a onclick="add()" id="link2"><img src="res/arrowleft-removebg-preview.png" id="child2"></a>
+        </div>
+      <div id="hello">
+        <div>
+        <div class="divback" ></div>
+        <button id="button" onclick="video('res/avengers-intro.mp4')">Are you ready?</button>
+        <div class="divback2"></div>
+      </div>
+      </div>
+      <div id="hello1">
+        <div>
+        <div class="divback3" ></div>
+        <button id="button1" onclick="video('res/star-wars-intro.mp4')">Are you ready?</button>
+        <div class="divback4"></div>
+      </div>
+      </div>
+      <div id="hello2">
+        <div>
+        <div class="divback5" ></div>
+        <button id="button2" onclick="video('res/DC-comics-intro.mp4')">Are you ready?</button>
+        <div class="divback6"></div>
+      </div>
+      </div>
+      <div id="hello3">
+        <div>
+        <div class="divback7"></div>
+        <button id="button3" onclick="video('res/Universal.mp4')">Are you ready?</button>
+        <div class="divback8"></div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div id="quiz">
+    <div id="parentofcontainer">
+    <div id="containerofmarvelquiz">
+    <div id='marvelquiz'>
+      <div id="question1">When was Marvel Entertainment created ?</div>
+      <div class="answersof1" id='solution1' ><span>&#8594;</span><span>1947</span></div>
+      <div class="answersof1" id='solution2' ><span>&#8594;</span><span>1968</span></div>
+      <div class="answersof1" id='solution3' ><span>&#8594;</span><span>1939</span></div>
+      <div class="answersof1" id='solution4' ><span>&#8594;</span><span>1998</span></div>
+    </div>
+    <div id="sliderofquiz">
+      <button class='bbutton'><img src="res/arrow-for-quiz-black.png" id="arrowleftquiz" onclick="slideforquiz(aaaaa)"></button>
+      <button class='bbutton'><img src="res/arrow-for-quiz-black.png" id="arrowrightquiz" onclick="slideforquiz(aaaaa)"></button>
+    </div>
+  </div>
+  </div>
+  <div id="containerofstarwars">
+    <video autoplay muted loop><source src="res/Copie de Nouvelle vidéo.mp4"></video>
+    <div id='starwarsquiz'>
+      <div id="question2">What is the first film of the Star Wars Saga ?</div>
+      <div class="answersof2" id='solution5' ><span>&#8594;</span><span>Star Wars,Return of the Jedi</span></div>
+      <div class="answersof2" id='solution6' ><span>&#8594;</span><span>Star Wars: The Last Jedi</span></div>
+      <div class="answersof2" id='solution7' ><span>&#8594;</span><span>Star Wars: Episode I – The Phantom Menace</span></div>
+      <div class="answersof2" id='solution8' ><span>&#8594;</span><span>Star Wars, Episode IV : A New Hope</span></div>
+    </div> 
+    <div id="sliderofquiz2">
+      <button class='bbutton'><img src="res/arrow-for-starwars.png" id="arrowrightquiz1" class="arrowsbros" onclick="slideforquizstarwars(sssss)" style="margin: 0 0 10px 0;"></button><!--the right and the  left are placed wrong but don't change  it because you will have to change it as well as in the javascript-->
+      <button class='bbutton'><img src="res/arrow-for-starwars.png" id="arrowleftquiz1" class="arrowsbros" onclick="slideforquizstarwars(sssss)" style="margin: 0 0 10px 0;"></button>
+    </div>
+  </div>
+  <div id="parentwithnumber">
+  <div id="containerofdc">
+    <div id='dcquiz'>
+      <div id="question3">When was DC comics created ?</div>
+      <div class="answersof3" id='solution9' ><span>&#8594;</span><span>1945</span></div>
+      <div class="answersof3" id='solution10' ><span>&#8594;</span><span>1934</span></div><!--true-->
+      <div class="answersof3" id='solution11' ><span>&#8594;</span><span>1988</span></div>
+      <div class="answersof3" id='solution12' ><span>&#8594;</span><span>1963</span></div>
+    </div> 
+    <div id="sliderofquiz3">
+      <button class='bbutton'><img src="res/arrow-for-dc.png" id="arrowrightquiz2" class="arrowsbros" onclick="slideforquizdc(ddddd)" style="margin: 0 0 10px 0;"></button><!--the right and the  left are placed wrong but don't change  it because you will have to change it as well as in the javascript-->
+      <button class='bbutton'><img src="res/arrow-for-dc.png" id="arrowleftquiz2" class="arrowsbros" onclick="slideforquizdc(ddddd)" style="margin: 0 0 10px 0;"></button>
+    </div>
+  </div>
+  </div>
+  <div id="ooyaparent">
+    <div id="containerofuniversal">
+      <div id='universalquiz'>
+        <div id="question4">Who owns Universal Studios ?</div>
+        <div class="answersof4" id='solution13' ><span>&#8594;</span><span>1945</span></div>
+        <div class="answersof4" id='solution14' ><span>&#8594;</span><span>1934</span></div><!--true-->
+        <div class="answersof4" id='solution15' ><span>&#8594;</span><span>1988</span></div>
+        <div class="answersof4" id='solution16' ><span>&#8594;</span><span>1963</span></div>
+      </div> 
+      <div id="sliderofquiz4">
+        <button class='bbutton'><img src="res/arrow-for-universal.png" id="arrowrightquiz3" class="arrowsbros" onclick="slideforquizuniversal(uuuuu)" style="margin: 0 0 10px 0;"></button><!--the right and the  left are placed wrong but don't change  it because you will have to change it as well as in the javascript-->
+        <button class='bbutton'><img src="res/arrow-for-universal.png" id="arrowleftquiz3" class="arrowsbros" onclick="slideforquizuniversal(uuuuu)" style="margin: 0 0 10px 0;"></button>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div>
+    <button id="buttonlogin">Wanna sign up</button>
+    <div id="login">
+      <div id="parent222">
+      <form>
+        <ppp>We are happy to hear that you decided to join us on our platform</ppp>
+         <br>
+          <label>Your Name : </label><input type="text" placeholder="Jack" required="true"  id="name">
+          <br>
+          <label id="label2">Your Email : </label><input type="email" placeholder="example@example.com" required="true" id="email1">
+          <br>
+          <label id="label3">Your password :</label><input type="password" placeholder="••••••••" minlength="8" required="true" id="passwd">
+      </form>
+      <input type="submit" id="submit">
+    </div>
+    </div>
+  </div>
+</body>
+<script src="js/script.js"></script>
+</html>
