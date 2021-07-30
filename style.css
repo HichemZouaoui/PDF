@@ -65,6 +65,22 @@ a:active{
 #moving_screen{
     width: 450%;
 }
+   /* animation: slider 10s ease-in-out forwards;
+}
+@keyframes slider{
+    25% {
+        transform:translateX(-100%);
+    }
+    50% {
+        transform:translateX(-100%);
+    }
+    75% {
+        transform:translateX(-00%);
+    }
+    100%{
+        transform:translateX(100%);
+    }
+}*/
 #slider{
     width: 90vw;
     display: flex;
@@ -109,13 +125,7 @@ a:active{
     width: fit-content;
     
 }
-@media (min-width:480px) and (max-width:768px){
-    #hello{
-        position: relative;
-        left:5%;
-        top:20%;
-    }
-}
+
 #hello1{
     position: absolute;
     top:110vh;
@@ -226,6 +236,8 @@ a:active{
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: white;
+    z-index: 2;
 }
 #containerofmarvelquiz{
     border: black solid thick;
@@ -280,6 +292,7 @@ a:active{
     margin-top: 3%;
     margin-left: 50px;
     width: 40vw;
+    max-height:82.8vh ;
 }
 .answersof2{
     z-index: 1;
@@ -384,4 +397,29 @@ ins{
     top: 90%;
     left: 90%;
     cursor: pointer;
+}
+@media (min-width:480px) and (max-width:768px){
+    #hello{
+        position: absolute;
+        left:30%;
+        top:100%;
+    }
+    #hello1{
+        position: absolute;
+        left: 130%;
+        top: 100%;
+    }
+    #hello2{
+        position: absolute;
+        left:230%;
+        top: 100%;
+    }
+    #hello3{
+        position: absolute;
+        left: 330%;
+        top: 100%;
+    }
+    #parentwithnumber{
+        height: 82.8vh;
+    }
 }

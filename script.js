@@ -621,7 +621,7 @@ function slideforquizdc(index){
     }
 }
 ddddd=1
-function addforslider(){
+function addforsliderdc(){
     if (ddddd==3){
         ddddd==0;
     }
@@ -629,7 +629,7 @@ function addforslider(){
         ddddd++;
     }
 }
-function diminishforslider(){
+function diminishforsliderdc(){
     if (ddddd==0){
         ddddd==3;
     }
@@ -637,8 +637,8 @@ function diminishforslider(){
         ddddd--;
     }
 }
-document.getElementById("arrowleftquiz2").addEventListener("click",function(){addforslider()});
-document.getElementById("arrowrightquiz2").addEventListener("click",function(){diminishforslider()})
+document.getElementById("arrowleftquiz2").addEventListener("click",function(){addforsliderdc()});
+document.getElementById("arrowrightquiz2").addEventListener("click",function(){diminishforsliderdc()})
 function verificationdc(index,spacing){
     let spantrue=document.createElement("span");
     let spanfalse1=document.createElement("span");
@@ -814,7 +814,7 @@ function slideforquizuniversal(index){
     }
 }
 uuuuu=1;
-function addforslider(){
+function addforslideruniversal(){
     if (uuuuu==3){
         uuuuu==0;
     }
@@ -822,7 +822,7 @@ function addforslider(){
         uuuuu++;
     }
 }
-function diminishforslider(){
+function diminishforslideruniversal(){
     if (uuuuu==0){
         uuuuu==3;
     }
@@ -830,8 +830,8 @@ function diminishforslider(){
         uuuuu--;
     }
 }
-document.getElementById("arrowleftquiz3").addEventListener("click",function(){addforslider()});
-document.getElementById("arrowrightquiz3").addEventListener("click",function(){diminishforslider()})
+document.getElementById("arrowleftquiz3").addEventListener("click",function(){diminishforslideruniversal()});
+document.getElementById("arrowrightquiz3").addEventListener("click",function(){addforslideruniversal()})
 function verificationuniversal(index,spacing){
     let spantrue=document.createElement("span");
     let spanfalse1=document.createElement("span");
@@ -911,7 +911,13 @@ function videoduration(){
         html1.appendChild(containerr);
     },ttt)
 }
+function resetHref() {
+    location.hash = '';
+}
+document.querySelector("#link1").addEventListener("click",function(){resetHref()});
+document.querySelector("#link2").addEventListener("click",function(){resetHref()})
 function checktext(){
+    validity1="invalid";
     name1=document.getElementById("name").value;
     namenotcontent=document.querySelector("#name");
     namenotcontent1=document.getElementById("name")
@@ -928,7 +934,8 @@ function checktext(){
             alert("it didnt't1");
             form1.insertBefore(texr,document.querySelector('#label2'));
             return false;*/
-            alert("it didn't1");
+            //alert("it didn't1");
+            validity1="invalid";
             return false;
         } 
         
@@ -938,6 +945,7 @@ function checktext(){
             texr.appendChild(contenu);
             namenotcontent1.parentNode.removeChild(namenotcontent1.nextElementSibling);
             form1.insertBefore(texr,document.querySelector('#label2'));
+            validity1="valid";
             return false;
     }
 }
@@ -951,7 +959,8 @@ function checktext(){
             console.log(document.querySelector('#label2'));
             form1.insertBefore(texr,document.querySelector('#label2'));
             namenotcontent1.parentNode.removeChild(namenotcontent1.nextElementSibling);
-            alert("it didnt't2");
+            //alert("it didnt't2");
+            validity1="invalid";
             return false;
         }
         else if(name1!=null || name1!=0 || name1!=NaN || name1!=undefined){
@@ -960,7 +969,8 @@ function checktext(){
             texr.appendChild(contenu);
             namenotcontent1.parentNode.removeChild(namenotcontent1.nextElementSibling);
             form1.insertBefore(texr,document.querySelector('#label2'));
-            alert("it's entered2");
+            //alert("it's entered2");
+            validity1="valid";
             return false;
         }
     }
@@ -973,7 +983,8 @@ function checktext(){
             texr.appendChild(contenu);
             console.log(document.querySelector('#label2'));
             form1.insertBefore(texr,document.querySelector('#label2'));
-            alert("secondone");		
+            //alert("secondone");
+            validity1="invalid";		
             return false;
         
         }
@@ -982,13 +993,15 @@ function checktext(){
             let contenu=document.createTextNode("✅ Valid Name");
             texr.appendChild(contenu);
             form1.insertBefore(texr,document.querySelector('#label2'));
-            alert("firstone");
+            //alert("firstone");
+            validity1="valid";
             return false;
         }
     }
 }
 function checkemail(){
     let array1=[]
+    validity2="invalid";
     let pparent=document.querySelector('form');
     let email1=document.querySelector("#email1").value;
     console.log(email1.indexOf("@"));
@@ -998,21 +1011,22 @@ function checkemail(){
             array1.push("@");
         }
     }
-    console.log(array1)
+    //console.log(array1)
     if (document.getElementById("email1").nextElementSibling.textContent=="⛔ Invalid Email. Please enter a valid one." || document.getElementById("email1").nextElementSibling.textContent=="✅ Valid Email"){
             pparent.removeChild(document.getElementById("email1").nextElementSibling);
-            alert("entered")
+            //alert("entered")
         }
     if (array1.length ==1){
         let texr=document.createElement("pre");
         let contenu=document.createTextNode("✅ Valid Email");
         texr.appendChild(contenu);
         pparent.insertBefore(texr,document.getElementById("label3"));
+        validity2="valid";
     }
     else{
         if (document.getElementById("email1").nextElementSibling.textContent=="⛔ Invalid Email. Please enter a valid one." || document.getElementById("email1").nextElementSibling.textContent=="✅ Valid Email"){
             pparent.removeChild(document.getElementById("email1").nextElementSibling);
-            alert("entered")
+            //alert("entered")
         }
         let texr=document.createElement("p");
         let contenu=document.createTextNode("⛔ Invalid Email. Please enter a valid one.");
@@ -1021,11 +1035,13 @@ function checkemail(){
         texr.appendChild(contenu);
         //console.log(document.querySelector('#label2'));
         pparent.insertBefore(texr,document.getElementById('label3'));
+        validity2="invalid";
         /*alert(document.getElementById("email1").nextElementSibling);
         console.log(document.getElementById("email1").nextElementSibling.textContent);*/
     }
 }
 function checkpassword(){
+    validity3="invalid"
     let maj="invalid";
     let min="invalid";
     let spch="invalid";
@@ -1052,6 +1068,7 @@ function checkpassword(){
             let contenu=document.createTextNode("⛔ Invalid Password. Please write one that its length is greater than or equal to 8");
             texr.appendChild(contenu);
             passwd.parentNode.appendChild(texr,document.getElementById('label3'));	
+            validity3="invalid";
         }
         else if(test11==true){
             passwd.parentElement.removeChild(passwd.nextSibling);
@@ -1059,6 +1076,7 @@ function checkpassword(){
             let contenu=document.createTextNode("⛔ Invalid Password. Please write one that its length is greater than or equal to 8");
             texr.appendChild(contenu);
             passwd.parentNode.appendChild(texr,document.getElementById('label3'));	
+            validity3="invalid";
         }
     }
     else if(passwd.value.length>=8){
@@ -1067,6 +1085,7 @@ function checkpassword(){
             let contenu=document.createTextNode("✅ Valid password which has a length greater or equal to 8");
             texr.appendChild(contenu);
             passwd.parentNode.appendChild(texr,document.getElementById('label3'));
+            validity3="valid";
         }
         else if(test11==true ){
             passwd.parentNode.removeChild(passwd.nextSibling);
@@ -1074,6 +1093,7 @@ function checkpassword(){
             let contenu=document.createTextNode("✅ Valid password which has a length greater or equal to 8");
             texr.appendChild(contenu);
             passwd.parentNode.appendChild(texr,document.getElementById('label3'));
+            validity3="valid";
         }
     }
     //console.log(passwd.value);
@@ -1144,7 +1164,11 @@ function checkpassword(){
             passwd.parentNode.appendChild(texr,document.getElementById('label3'));
         }
     }
-}
+    if(validity2=="valid" && validity1=="valid" && validity3=="valid" && maj=="valid" && min=="valid" && spch=="valid" ){
+        setTimeout(function(){document.getElementById("login").style.contentVisibility="hidden";document.getElementById("login").style.backgroundColor="transparent"})
+    }
+
+    }
 document.getElementById("submit").addEventListener("click",function(){checktext();checkemail();checkpassword()});
 function showuppopup(){
     document.getElementById("login").style.contentVisibility="visible";
@@ -1156,6 +1180,7 @@ function showuppopup(){
     //document.getElementById('login').style.left='40%';
     document.getElementById("login").style.backgroundColor="rgba(0%,0%,0%,80%)";
     document.querySelector("form").style.backgroundColor="white";
-    document.querySelector("form").style.padding="15px 15px 15px 15px"
+    document.querySelector("form").style.padding="15px 15px 15px 15px";
 }
-document.getElementById("buttonlogin").addEventListener("click",function(){showuppopup()})
+forward=0
+document.getElementById("buttonlogin").addEventListener("click",function(){showuppopup()});
